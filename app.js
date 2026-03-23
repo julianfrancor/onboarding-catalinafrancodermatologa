@@ -1,7 +1,7 @@
 // ============================================================
 // CONFIGURACIÓN - Reemplazar con la URL de tu Google Apps Script
 // ============================================================
-const APPS_SCRIPT_URL = 'TU_URL_DE_APPS_SCRIPT_AQUI';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwMfYK7_eMnVssuHj6-EqW8v6GuyBSIu1IAsyJQkda8THHZEQ43u64A_tjPdNmLMtcj/exec';
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
