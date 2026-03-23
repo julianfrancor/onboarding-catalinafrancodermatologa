@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding - Dra. Catalina Franco Dermatología</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">CF</div>
+                <div>
+                    <h1>Dra. Catalina Franco</h1>
+                    <p class="subtitle">Dermatología</p>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="welcome-card">
+                <h2>Bienvenido/a a su consulta dermatológica</h2>
+                <p>Por favor complete el siguiente formulario de ingreso. Sus datos serán tratados de manera confidencial.</p>
+            </div>
+
+            <form id="onboardingForm" novalidate>
+                <!-- Sección 1: Datos Personales -->
+                <section class="form-section">
+                    <div class="section-header">
+                        <span class="section-number">1</span>
+                        <h3>Datos Personales</h3>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="tipoDocumento">Tipo de Documento *</label>
+                            <select id="tipoDocumento" name="tipoDocumento" required>
+                                <option value="">Seleccione...</option>
+                                <option value="CC">Cédula de Ciudadanía</option>
+                                <option value="CE">Cédula de Extranjería</option>
+                                <option value="TI">Tarjeta de Identidad</option>
+                                <option value="PP">Pasaporte</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="numeroDocumento">Número de Documento *</label>
+                            <input type="text" id="numeroDocumento" name="numeroDocumento" placeholder="Ej: 1234567890" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nombres">Nombres *</label>
+                            <input type="text" id="nombres" name="nombres" placeholder="Ingrese sus nombres" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="apellidos">Apellidos *</label>
+                            <input type="text" id="apellidos" name="apellidos" placeholder="Ingrese sus apellidos" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fechaNacimiento">Fecha de Nacimiento *</label>
+                            <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="genero">Género *</label>
+                            <select id="genero" name="genero" required>
+                                <option value="">Seleccione...</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono / Celular *</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="Ej: 3001234567" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico *</label>
+                            <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="direccion">Dirección de Residencia</label>
+                            <input type="text" id="direccion" name="direccion" placeholder="Ingrese su dirección">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ciudad">Ciudad *</label>
+                            <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad de residencia" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eps">EPS / Aseguradora</label>
+                            <input type="text" id="eps" name="eps" placeholder="Nombre de su EPS">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sección 2: Información Médica -->
+                <section class="form-section">
+                    <div class="section-header">
+                        <span class="section-number">2</span>
+                        <h3>Información Médica</h3>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="motivoConsulta">Motivo de Consulta *</label>
+                            <textarea id="motivoConsulta" name="motivoConsulta" rows="3" placeholder="Describa brevemente el motivo de su consulta dermatológica" required></textarea>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="antecedentes">Antecedentes Médicos Relevantes</label>
+                            <textarea id="antecedentes" name="antecedentes" rows="3" placeholder="Enfermedades previas, cirugías, alergias, medicamentos actuales..."></textarea>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="antecedentesFamiliares">Antecedentes Familiares Dermatológicos</label>
+                            <textarea id="antecedentesFamiliares" name="antecedentesFamiliares" rows="2" placeholder="¿Algún familiar con enfermedades de la piel?"></textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sección 3: Fotos y Documentos -->
+                <section class="form-section">
+                    <div class="section-header">
+                        <span class="section-number">3</span>
+                        <h3>Fotos y Documentos</h3>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label>Fotos de la zona afectada</label>
+                            <p class="field-hint">Suba fotos claras de la zona que desea consultar (máx. 5 fotos, 10MB cada una)</p>
+                            <div class="file-upload-area" id="fotosUploadArea">
+                                <div class="upload-icon">📷</div>
+                                <p>Arrastre las fotos aquí o haga clic para seleccionar</p>
+                                <input type="file" id="fotos" name="fotos" multiple accept="image/*" class="file-input">
+                            </div>
+                            <div id="fotosPreview" class="file-preview"></div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Exámenes Médicos y Documentos</label>
+                            <p class="field-hint">Suba resultados de exámenes, biopsias, órdenes médicas, etc. (PDF, imágenes - máx. 10 archivos, 10MB cada uno)</p>
+                            <div class="file-upload-area" id="documentosUploadArea">
+                                <div class="upload-icon">📄</div>
+                                <p>Arrastre los documentos aquí o haga clic para seleccionar</p>
+                                <input type="file" id="documentos" name="documentos" multiple accept="image/*,.pdf,.doc,.docx" class="file-input">
+                            </div>
+                            <div id="documentosPreview" class="file-preview"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sección 4: Consentimiento -->
+                <section class="form-section">
+                    <div class="section-header">
+                        <span class="section-number">4</span>
+                        <h3>Consentimiento</h3>
+                    </div>
+
+                    <div class="consent-box">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="consentimiento" name="consentimiento" required>
+                            <span class="checkmark"></span>
+                            <span>Autorizo el tratamiento de mis datos personales y la información médica proporcionada, de acuerdo con la política de privacidad y protección de datos. Entiendo que esta información será utilizada exclusivamente para mi atención dermatológica. *</span>
+                        </label>
+                    </div>
+                </section>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <span class="btn-text">Enviar Formulario</span>
+                        <span class="btn-loading" style="display:none;">
+                            <span class="spinner"></span> Enviando...
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </main>
+
+        <!-- Modal de éxito -->
+        <div id="successModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <div class="success-icon">✓</div>
+                <h2>¡Formulario Enviado!</h2>
+                <p>Sus datos han sido registrados exitosamente. La Dra. Catalina Franco ha sido notificada de su ingreso.</p>
+                <p class="modal-detail">Recibirá información sobre su cita próximamente.</p>
+                <button class="btn-submit" onclick="location.reload()">Cerrar</button>
+            </div>
+        </div>
+
+        <!-- Modal de error -->
+        <div id="errorModal" class="modal" style="display:none;">
+            <div class="modal-content error">
+                <div class="error-icon">✕</div>
+                <h2>Error al Enviar</h2>
+                <p id="errorMessage">Hubo un problema al enviar el formulario. Por favor intente nuevamente.</p>
+                <button class="btn-submit" onclick="document.getElementById('errorModal').style.display='none'">Cerrar</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>Dra. Catalina Franco - Dermatología | Todos los derechos reservados</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

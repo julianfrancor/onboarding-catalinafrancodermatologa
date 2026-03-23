@@ -1,0 +1,456 @@
+/* === Reset & Base === */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #8B6F8E;
+    --primary-light: #B794BA;
+    --primary-dark: #6B4F6E;
+    --accent: #D4A5A5;
+    --bg: #FAF7F5;
+    --bg-card: #FFFFFF;
+    --text: #2D2D2D;
+    --text-light: #6B6B6B;
+    --border: #E8E0E0;
+    --error: #D32F2F;
+    --success: #2E7D32;
+    --radius: 12px;
+    --shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* === Header === */
+.header {
+    text-align: center;
+    padding: 30px 0 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.logo-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    font-weight: 400;
+}
+
+/* === Welcome Card === */
+.welcome-card {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    padding: 28px 32px;
+    border-radius: var(--radius);
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.welcome-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.welcome-card p {
+    font-size: 0.95rem;
+    opacity: 0.92;
+}
+
+/* === Form Sections === */
+.form-section {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--bg);
+}
+
+.section-number {
+    width: 34px;
+    height: 34px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.section-header h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+/* === Form Grid === */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+label {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 6px;
+}
+
+.field-hint {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    padding: 12px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: var(--text);
+    background: var(--bg);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(139, 111, 142, 0.15);
+}
+
+input.invalid,
+select.invalid,
+textarea.invalid {
+    border-color: var(--error);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* === File Upload === */
+.file-upload-area {
+    border: 2px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 32px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+}
+
+.file-upload-area:hover,
+.file-upload-area.dragover {
+    border-color: var(--primary);
+    background: rgba(139, 111, 142, 0.04);
+}
+
+.upload-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.file-upload-area p {
+    font-size: 0.88rem;
+    color: var(--text-light);
+}
+
+.file-input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.file-preview-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    max-width: 250px;
+}
+
+.file-preview-item .file-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-preview-item .file-size {
+    color: var(--text-light);
+    flex-shrink: 0;
+}
+
+.file-preview-item .remove-file {
+    background: none;
+    border: none;
+    color: var(--error);
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0 2px;
+    flex-shrink: 0;
+}
+
+/* === Consent === */
+.consent-box {
+    background: var(--bg);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.checkbox-label {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    cursor: pointer;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    accent-color: var(--primary);
+}
+
+/* === Submit Button === */
+.form-actions {
+    text-align: center;
+    margin: 32px 0;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    border: none;
+    padding: 16px 48px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+    min-width: 220px;
+}
+
+.btn-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(139, 111, 142, 0.35);
+}
+
+.btn-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2.5px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* === Modal === */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    border-radius: var(--radius);
+    padding: 40px;
+    text-align: center;
+    max-width: 440px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.success-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--success);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 auto 20px;
+}
+
+.error-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--error);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 auto 20px;
+}
+
+.modal-content h2 {
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+.modal-content p {
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.modal-detail {
+    font-size: 0.88rem;
+    margin-bottom: 24px !important;
+}
+
+.modal-content .btn-submit {
+    margin-top: 16px;
+}
+
+/* === Footer === */
+footer {
+    text-align: center;
+    padding: 24px 0;
+    color: var(--text-light);
+    font-size: 0.82rem;
+}
+
+/* === Responsive === */
+@media (max-width: 640px) {
+    .container {
+        padding: 12px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-section {
+        padding: 20px 16px;
+    }
+
+    .welcome-card {
+        padding: 22px 18px;
+    }
+
+    .welcome-card h2 {
+        font-size: 1.15rem;
+    }
+
+    .logo {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo > div {
+        text-align: center;
+    }
+
+    .btn-submit {
+        width: 100%;
+    }
+}
